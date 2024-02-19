@@ -77,41 +77,50 @@ closeSearchOverlay.addEventListener("click", function () {
 // VIDEO PLAYER
 // 
 
-const viewDemoButtons = document.querySelectorAll('.view-demo-btn');
-const openCheckOverlayBtns = document.querySelectorAll('#openCheckBox');
-const videoOverlay = document.querySelector('.video-overlay');
-const closeVideoBtns = document.querySelectorAll('.close-video-btn');
-const checkOverlays = document.querySelectorAll('.check-overlay');
-const closeCheckOverlayBtns = document.querySelectorAll("#checkCloseBtn");
 
-viewDemoButtons.forEach(function (button) {
+
+
+const viewDemoButtons = document.querySelectorAll('.view-demo-btn');
+const videoOverlays = document.querySelectorAll('.video-overlay');
+const openCheckOverlayBtns = document.querySelectorAll('.openCheckBox');
+const checkOverlays = document.querySelectorAll('.check-overlay');
+
+// Add event listener for opening video overlays
+viewDemoButtons.forEach(function (button, index) {
   button.addEventListener('click', function () {
-    videoOverlay.classList.add("active");
+    // Find the corresponding video overlay and add "active" class
+    videoOverlays[index].classList.add("active");
   });
 });
 
-openCheckOverlayBtns.forEach(function (button) {
+// Add event listener for opening check overlays
+openCheckOverlayBtns.forEach(function (button, index) {
   button.addEventListener('click', function () {
-    const index = Array.from(openCheckOverlayBtns).indexOf(button);
+    // Find the corresponding check overlay and add "active" class
     checkOverlays[index].classList.add("active");
   });
 });
 
-closeVideoBtns.forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    videoOverlay.classList.remove("active");
-  });
+// Event delegation for closing overlays
+document.addEventListener('click', function(event) {
+  const target = event.target;
+  
+  // Close video overlay
+  if (target.classList.contains('close-video-btn')) {
+    const videoOverlay = target.closest('.video-overlay');
+    if (videoOverlay) {
+      videoOverlay.classList.remove("active");
+    }
+  }
+  
+  // Close check overlay
+  if (target.classList.contains('checkCloseBtn')) {
+    const checkOverlay = target.closest('.check-overlay');
+    if (checkOverlay) {
+      checkOverlay.classList.remove("active");
+    }
+  }
 });
-
-closeCheckOverlayBtns.forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    checkOverlays.forEach(function (overlay) {
-      overlay.classList.remove("active");
-    });
-  });
-});
-
-
 
 // 
 // LOGIN SIGNUP FORM TOGGLER

@@ -1,9 +1,9 @@
 <?php
 $routes = [
-    "/home" => "views/home.php",
-    "/" => "views/home.php",
     "" => "views/home.php",
+    "/" => "views/home.php",
     "/buy" => "views/buy.php",
+    "/home" => "views/home.php",
     "/hire" => "views/hire.php",
     "/login" => "views/login.php",
     "/about" => "views/about.php",

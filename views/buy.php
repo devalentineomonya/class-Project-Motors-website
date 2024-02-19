@@ -50,7 +50,7 @@ include "views/partials/header.php"
                         </div>
                         <p class="car-button-d-flex">
                             <?php if (isset($_SESSION['currentUser'])) : ?>
-                                <a id="openCheckBox" class="">Buy now</a>
+                                <a class="openCheckBox">Buy now</a>
                             <?php else : ?>
                                 <a class="" href="/login">Buy now</a>
                             <?php endif; ?>
@@ -64,13 +64,13 @@ include "views/partials/header.php"
                         <video controls autoplay class="video-player">
                             <source src="../videos/<?php echo $row['video_name']; ?>" type="video/mp4">
                             This Video is Unavailable for
-                                        or
+                            or
                             Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
                 <div class="check-overlay">
-                    <img id="checkCloseBtn" class="close-video-btn" src="../images/siteImages/close.png" alt="">
+                    <img class="close-video-btn checkCloseBtn" src="../images/siteImages/close.png" alt="">
                     <div class="booking-content">
                         <div class="img-tick">
                             <img src="../images/siteImages/check-mark.png" alt="">

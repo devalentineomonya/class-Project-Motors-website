@@ -51,14 +51,13 @@ include "views/partials/header.php"
                             <p class="price">$<?php echo $row['Price']; ?> <span>/day</span></p>
                         </div>
                         <p class="car-button-d-flex">
-                            <?php if (isset($_SESSION['currentUser'])) : ?>
-                                <a id="openCheckBox" class="">Hire now</a>
-                            <?php else : ?>
-                                <a class="" href="/login">Hire now</a>
-                            <?php endif; ?>
-
-                            <button class="view-demo-btn">View Demo</button>
-                        </p>
+    <?php if (isset($_SESSION['currentUser'])) : ?>
+        <a class="openCheckBox">Hire now</a>
+    <?php else : ?>
+        <a class="" href="/login">Hire now</a>
+    <?php endif; ?>
+    <button class="view-demo-btn">View Demo</button>
+</p>
                     </div>
                 </div>
                 <div class="video-overlay">
@@ -73,7 +72,7 @@ include "views/partials/header.php"
                     </div>
                 </div>
                 <div class="check-overlay">
-                    <img id="checkCloseBtn" class="close-video-btn" src="../images/siteImages/close.png" alt="">
+                <img class="close-video-btn checkCloseBtn" src="../images/siteImages/close.png" alt="">
                     <div class="booking-content">
                         <div class="img-tick">
                             <img src="../images/siteImages/check-mark.png" alt="">
