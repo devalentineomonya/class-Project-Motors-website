@@ -5,6 +5,7 @@ $routes = [
     "/buy" => "views/buy.php",
     "/home" => "views/home.php",
     "/hire" => "views/hire.php",
+    "/index" => "views/home.php",
     "/login" => "views/login.php",
     "/about" => "views/about.php",
     "/search" => "views/search.php",

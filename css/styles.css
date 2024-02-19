@@ -917,18 +917,18 @@ LOGIN FORM
     padding: 5px;
     overflow: hidden;
 }
- 
+
 .error-message {
     color: #ff0000;
-    font-size: 16px; 
+    font-size: 16px;
     font-family: Arial, sans-serif;
-    margin: 10px 0; 
-    padding: 10px; 
-    border: 2px solid #ff0000; 
-    border-radius: 5px; 
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
     background-color: #ffe0e0;
     text-align: center;
-   
+
 }
 
 .login-container .form-box .button-box {
@@ -959,7 +959,7 @@ LOGIN FORM
     transition: 0.5s;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
 }
 
 .login-container .form-box .social-icons {
@@ -980,7 +980,7 @@ LOGIN FORM
     position: absolute;
     width: 280px;
     transition: 0.5s;
-  
+
 }
 
 .login-container .form-box .input-group .input-field {
@@ -1142,7 +1142,7 @@ MEDIA QUERY
         padding: 0 10px;
     }
 
-    .car-card .video-overlay .video-content{
+    .car-card .video-overlay .video-content {
         height: 70%;
     }
 
@@ -1179,10 +1179,11 @@ MEDIA QUERY
     .car-container .row .car-card {
         flex-basis: calc(50% - 20px);
     }
+
     /* =====================
     VIDEO PLAYER 
     ======================== */
-    .car-card .video-overlay .video-content{
+    .car-card .video-overlay .video-content {
         height: 50%;
     }
 }

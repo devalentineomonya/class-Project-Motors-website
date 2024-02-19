@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                     <div class="check-overlay">
-                        <img id="checkCloseBtn" class="close-video-btn" src="../images/siteImages/close.png" alt="">
+                        <img class="close-video-btn checkCloseBtn" src="../images/siteImages/close.png" alt="">
                         <div class="booking-content">
                             <div class="img-tick">
                                 <img src="../images/siteImages/check-mark.png" alt="">
