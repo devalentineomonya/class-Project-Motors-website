@@ -65,7 +65,9 @@ include "views/partials/header.php"
                     <img class="close-video-btn" src="../images/siteImages/close.png" alt="">
                     <div class="video-content">
                         <video controls autoplay class="video-player">
-                            <source src="../videos/carDemo/<?php echo $row['video_name']; ?>" type="video/mp4">
+                            <source src="../videos/<?php echo $row['video_name']; ?>" type="video/mp4">
+                            This Video is Unavailable for
+                                        or
                             Your browser does not support the video tag.
                         </video>
                     </div>

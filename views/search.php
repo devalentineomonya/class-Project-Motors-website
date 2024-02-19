@@ -13,8 +13,8 @@ include "views/partials/header.php"
 <?php
 echo '<script>
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementsByClassName("h1top")[0].textContent = "Result For '. (isset($_GET['s']) ? $_GET['s'] : '') . '";
-    document.title = "Result For '. (isset($_GET['s']) ? $_GET['s'] : '') . '";
+    document.getElementsByClassName("h1top")[0].textContent = "Result For ' . (isset($_GET['s']) ? $_GET['s'] : '') . '";
+    document.title = "Result For ' . (isset($_GET['s']) ? $_GET['s'] : '') . '";
 });
 </script>';
 ?>
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <section class="car-container">
     <div class="title">
-    <h1 class="cars-title">Search '<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>'</h1>
+        <h1 class="cars-title">Search '<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>'</h1>
 
     </div>
     <div class="row">
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Modify the SQL query to include search parameter
         $stmt = $pdo->prepare("SELECT * FROM cars WHERE (LOWER(Make) LIKE LOWER(:search) OR LOWER(Model) LIKE LOWER(:search) OR LOWER(type) LIKE LOWER(:search)) LIMIT :limit OFFSET :offset");
-        $stmt->bindValue(":search", "%$search%");        
+        $stmt->bindValue(":search", "%$search%");
         $stmt->bindValue(":limit", $carsPerPage, PDO::PARAM_INT);
         $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
         $stmt->execute();
@@ -138,7 +138,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         if ($stmt->rowCount() == 0) {
-            echo '<p>No cars found matching the search criteria.</p>';
+            echo '<section class="not-found-section">
+            <p class="not-found-text">No Search Result Found</p>
+            <button class="go-home-button" onclick="window.location.href = \'/buy\';">Check Cars</button>
+        </section>';
         }
         ?>
     </div>

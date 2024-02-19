@@ -50,9 +50,9 @@ include "views/partials/header.php"
                         </div>
                         <p class="car-button-d-flex">
                             <?php if (isset($_SESSION['currentUser'])) : ?>
-                                <a id="openCheckBox" class="">Hire now</a>
+                                <a id="openCheckBox" class="">Buy now</a>
                             <?php else : ?>
-                                <a class="" href="/login">Hire now</a>
+                                <a class="" href="/login">Buy now</a>
                             <?php endif; ?>
                             <button class="view-demo-btn">View Demo</button>
                         </p>
@@ -62,7 +62,9 @@ include "views/partials/header.php"
                     <img class="close-video-btn" src="../images/siteImages/close.png" alt="">
                     <div class="video-content">
                         <video controls autoplay class="video-player">
-                            <source src="../videos/carDemo/<?php echo $row['video_name']; ?>" type="video/mp4">
+                            <source src="../videos/<?php echo $row['video_name']; ?>" type="video/mp4">
+                            This Video is Unavailable for
+                                        or
                             Your browser does not support the video tag.
                         </video>
                     </div>
