@@ -78,8 +78,6 @@ closeSearchOverlay.addEventListener("click", function () {
 // 
 
 
-
-
 const viewDemoButtons = document.querySelectorAll('.view-demo-btn');
 const videoOverlays = document.querySelectorAll('.video-overlay');
 const openCheckOverlayBtns = document.querySelectorAll('.openCheckBox');
@@ -88,7 +86,6 @@ const checkOverlays = document.querySelectorAll('.check-overlay');
 // Add event listener for opening video overlays
 viewDemoButtons.forEach(function (button, index) {
   button.addEventListener('click', function () {
-    // Find the corresponding video overlay and add "active" class
     videoOverlays[index].classList.add("active");
   });
 });
@@ -96,7 +93,6 @@ viewDemoButtons.forEach(function (button, index) {
 // Add event listener for opening check overlays
 openCheckOverlayBtns.forEach(function (button, index) {
   button.addEventListener('click', function () {
-    // Find the corresponding check overlay and add "active" class
     checkOverlays[index].classList.add("active");
   });
 });

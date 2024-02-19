@@ -14,6 +14,14 @@ function emailExists($email) {
     return $stmt->fetchColumn() > 0;
 }
 
+function GetUserID($email) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT CustomerID FROM customers WHERE Email = ?");
+    $stmt->execute([$email]);
+    $result = $stmt->fetchColumn();
+    return $result ? $result : null; 
+}
+
 
 function registerUser($name, $email, $phone, $password) {
     global $pdo;
@@ -35,8 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     if (registerUser($name, $email, $phone, $password)) {
-        $_SESSION["currentUser"] = $name;
-        header('Location: /home');
+        if($userID = GetUserID($email)){
+            $_SESSION["currentUser"] = $userID;
+            header('Location: /home');
+        } else {
+            header('Location: /login');
+        }
+        
+        
         exit;
     } else {
         $_SESSION['authError'] = "An Error Occurred On Registration.";
