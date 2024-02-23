@@ -65,14 +65,15 @@
 </footer>
 
 </section>
-
-<script src="js\main.js"></script>
-
+<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+<script src="js/carousel.js"></script>
+<script src="js/main.js"></script>
 <script>
+   
     // 
     //  REVEAL ON SCROLL
     // 
-    ScrollReveal().reveal('.car-wrap, .cars-title', {
+    ScrollReveal().reveal('.car-wrap, .cars-title, .person-leader-card', {
         reset: true,
         delay: 200,
         distance: '50px',

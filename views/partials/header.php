@@ -11,10 +11,11 @@ include_once 'php\config\connection.php';
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/about.css">
 </head>
 
 <body>
-    <div class="upper home-upper not-found-upper login-upper hire-upper buy-upper contact-upper ">
+    <div class="upper home-upper not-found-upper login-upper hire-upper buy-upper contact-upper about-upper">
         <div class="navbar-container">
             <div class="logo-container">
                 <div class="custom-logo">
