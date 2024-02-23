@@ -1,0 +1,138 @@
+/* CSS code to style the page */
+
+/* Reset default margin and padding */
+body, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set font family and size */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* CSS code to style the navigation links */
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.navigation a:hover {
+    background-color: #ddd;
+}
+
+/* styles.css */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.content {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style table header */
+th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style table rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style table cells */
+td {
+    padding: 10px;
+}
+
+/* Style the h2 heading */
+h2 {
+    margin-top: 20px;
+}
+
+/* Style the Actions column */
+td:last-child {
+    text-align: center;
+}
+
+/* Add hover effect to table rows */
+tr:hover {
+    background-color: #ddd;
+}
+/* CSS code to style the buttons under the action column */
+
+/* Style accept button */
+.accept {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Style reject button */
+.reject {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}

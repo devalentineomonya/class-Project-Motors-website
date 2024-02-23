@@ -1,34 +1,15 @@
 <?php
+session_start();
+include_once 'php/config/connection.php';
 
-$host = "localhost";
-$dbname = "simbamotordb";
-$username = "root";
-$password = "";
+    $customerID = 2; 
+    $carId =151;
+    $saleAmount = 1300;
+    $saleDate = date('Y-m-d H:i:s');
 
-try {
-    // Establish the database connection
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
-    // Set PDO to throw exceptions on error
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $pdo->prepare("INSERT INTO carsales (CarID, CustomerID, SaleAmount, SaleDate) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$carId, $customerID, $saleAmount, $saleDate]);
 
-    $startID = 151;
-    $endID = 210;
-
-    try {
-        // Prepare the SQL update query
-        $stmt = $pdo->prepare("UPDATE cars SET Price = Price / 100 WHERE CarID BETWEEN ? AND ? AND Type = 'hire'");
-
-        // Bind the parameters and execute the query
-        $stmt->execute([$startID, $endID]);
-
-        // Output success message
-        echo "Prices updated successfully.";
-    } catch (PDOException $e) {
-        // Display error message if query fails
-        echo "Error updating prices: " . $e->getMessage();
-    }
-} catch (PDOException $e) {
-    // Display error message
-    echo "Update failed: " . $e->getMessage();
-}
+    // Output success message to JavaScript console
+    echo 'Purchase record with CarID $carId added successfully';

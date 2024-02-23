@@ -65,11 +65,43 @@
 </footer>
 
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
 <script src="js/carousel.js"></script>
 <script src="js/main.js"></script>
 <script>
-   
+    $(document).ready(function() {
+    $('.openCheckBox').on('click', function(e) {
+        e.preventDefault(); 
+
+        // Retrieve product information
+        var CarID = $(this).data('product-id');
+        var CarCost = $(this).data('car-cost');
+        var action = $(this).data('action');
+
+        // Send AJAX request
+        $.ajax({
+            url: '../php/function/process_action.php',
+            method: 'POST',
+            data: {
+                action: 'add_' + action + '_record',
+                CarID: CarID,
+                CarCost: CarCost
+            }, // Data to be sent to the server
+            success: function(response) {
+                // Handle success response
+                console.log(`${action} record ${CarID} ${CarCost} added successfully`);
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                console.error('Error adding record:', error);
+            }
+        });
+    });
+});
+
+
+
     // 
     //  REVEAL ON SCROLL
     // 

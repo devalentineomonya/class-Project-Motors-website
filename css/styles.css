@@ -16,7 +16,11 @@
 body {
     font-family: Roboto, Poppins, Arial, sans-serif;
 }
-
+/* 
+===================================
+TOP NAVBAR ON MD AND LARGE SCREENS
+===================================
+*/
 .upper {
     background-position: top;
     align-items: center;
@@ -169,7 +173,6 @@ SEARCH OVERLAY
 ==================================
 NAVIGATION DIVISION
 ==================================
-
 
 */
 
@@ -326,6 +329,8 @@ PARTNER SECTION
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    overflow-x: hidden;
     margin: 30px 0 20px;
 }
 
@@ -760,9 +765,9 @@ CAR CONTAINER SECTION
 }
 
 /* 
-===========================
-VIDEO PLAYER
-===========================
+===============================
+VIDEO PLAYER AND CHECK OVERLAY
+===============================
 */
 .car-card .video-overlay,
 .car-card .check-overlay {
@@ -1001,9 +1006,6 @@ LOGIN FORM
     column-gap: 10px;
 }
 
-/* .login-container .form-box .input-group .check-box {
-    margin: 30px 5px 30px 0;
-} */
 
 .login-container .form-box .input-group .check-box span {
     color: #777;
@@ -1186,6 +1188,8 @@ MEDIA QUERY
     .car-card .video-overlay .video-content {
         height: 50%;
     }
+
+   
 }
 
 @media screen and (max-width: 576px) {

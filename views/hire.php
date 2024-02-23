@@ -21,7 +21,7 @@ include "views/partials/header.php"
 
 <section class="car-container">
     <div class="title">
-        <h1  class="cars-title">Our Cars For Hire</h1>
+        <h1 class="cars-title">Our Cars For Hire</h1>
     </div>
     <div class="row">
         <?php
@@ -51,13 +51,13 @@ include "views/partials/header.php"
                             <p class="price">$<?php echo $row['Price']; ?> <span>/day</span></p>
                         </div>
                         <p class="car-button-d-flex">
-    <?php if (isset($_SESSION['currentUser'])) : ?>
-        <a class="openCheckBox">Hire now</a>
-    <?php else : ?>
-        <a class="" href="/login">Hire now</a>
-    <?php endif; ?>
-    <button class="view-demo-btn">View Demo</button>
-</p>
+                            <?php if (isset($_SESSION['currentUser'])) : ?>
+                                <a class="openCheckBox" data-product-id="<?php echo $row['CarID']; ?>" data-car-cost="<?php echo $row['Price']; ?>" data-action="hire">Buy now</a>
+                            <?php else : ?>
+                                <a class="" href="/login">Hire now</a>
+                            <?php endif; ?>
+                            <button class="view-demo-btn">View Demo</button>
+                        </p>
                     </div>
                 </div>
                 <div class="video-overlay">
@@ -66,13 +66,13 @@ include "views/partials/header.php"
                         <video controls autoplay class="video-player">
                             <source src="../videos/<?php echo $row['video_name']; ?>" type="video/mp4">
                             This Video is Unavailable for
-                                        or
+                            or
                             Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
                 <div class="check-overlay">
-                <img class="close-video-btn checkCloseBtn" src="../images/siteImages/close.png" alt="">
+                    <img class="close-video-btn checkCloseBtn" src="../images/siteImages/close.png" alt="">
                     <div class="booking-content">
                         <div class="img-tick">
                             <img src="../images/siteImages/check-mark.png" alt="">
