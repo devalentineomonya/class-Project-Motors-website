@@ -2,6 +2,12 @@
 // Include database connection file
 include_once '../php/config/connection.php';
 
+if (isset($_POST['del_purchase'])) {
+    $carID = $_POST['car_id'];
+    $stmt = $pdo->prepare("DELETE FROM carsales WHERE CarID = ?");
+    $stmt->execute([$carID]);
+}
+
 // Fetch data from the database
 $stmt = $pdo->prepare("SELECT * FROM carsales");
 $stmt->execute();
@@ -43,9 +49,12 @@ $hiredCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $customerDetails['Name']; ?></td>
                 <td>$<?php echo $carDetails['Price']; ?></td>
                 <td><?php echo $formattedDate ?></td>
-                <td>
+                <td class="buttons">
                     <button class="accept">Accept</button>
-                    <button class="reject">Reject</button>
+                    <form method="post">
+                        <input type="hidden" name="car_id" value="<?php echo $car['CarID']; ?>">
+                        <button type="submit" name="del_purchase" class="reject">Delete</button>
+                    </form>
                 </td>
             </tr>
         <?php endforeach; ?>

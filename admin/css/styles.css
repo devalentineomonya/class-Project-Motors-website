@@ -136,3 +136,6 @@ tr:hover {
     cursor: pointer;
     border-radius: 4px;
 }
+.buttons{
+    display: flex;
+}

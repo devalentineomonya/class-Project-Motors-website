@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             </div>
                             <p class="car-button-d-flex">
                                 <?php if (isset($_SESSION['currentUser'])) : ?>
-                                    <a class="openCheckBox">Hire now</a>
+                                    <a class="openCheckBox" data-product-id="<?php echo $row['CarID']; ?>" data-car-cost="<?php echo $row['Price']; ?>" data-action="hire">Hire now</a>
                                 <?php else : ?>
                                     <a class="" href="/login">Hire now</a>
                                 <?php endif; ?>
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                     <div class="check-overlay">
-                    <img class="close-video-btn checkCloseBtn" src="../images/siteImages/close.png" alt="">
+                        <img class="close-video-btn checkCloseBtn" src="../images/siteImages/close.png" alt="">
                         <div class="booking-content">
                             <div class="img-tick">
                                 <img src="../images/siteImages/check-mark.png" alt="">
@@ -102,7 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             </div>
                             <p class="car-button-d-flex">
                                 <?php if (isset($_SESSION['currentUser'])) : ?>
-                                    <a class="openCheckBox">Buy now</a>
+                                    <a class="openCheckBox" data-product-id="<?php echo $row['CarID']; ?>" data-car-cost="<?php echo $row['Price']; ?>" data-action="purchase">Buy now</a>
+
                                 <?php else : ?>
                                     <a class="" href="/login">Buy now</a>
                                 <?php endif; ?>

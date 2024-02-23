@@ -52,7 +52,7 @@ include "views/partials/header.php"
                         </div>
                         <p class="car-button-d-flex">
                             <?php if (isset($_SESSION['currentUser'])) : ?>
-                                <a class="openCheckBox" data-product-id="<?php echo $row['CarID']; ?>" data-car-cost="<?php echo $row['Price']; ?>" data-action="hire">Buy now</a>
+                                <a class="openCheckBox" data-product-id="<?php echo $row['CarID']; ?>" data-car-cost="<?php echo $row['Price']; ?>" data-action="hire">Hire now</a>
                             <?php else : ?>
                                 <a class="" href="/login">Hire now</a>
                             <?php endif; ?>
