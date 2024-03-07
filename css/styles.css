@@ -544,7 +544,6 @@ CONTACT FORM
 
 .contact-form .input-container .col-3 input:focus,
 .contact-form .col-6 textarea:focus {
-    border: none;
     border: 1px solid #0693e3;
 }
 

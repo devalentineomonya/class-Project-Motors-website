@@ -47,11 +47,11 @@ include "views/partials/header.php"
 
         </form>
 
-        <form id="registerForm" action="php\function\register.php" class="input-group" method="post">
+        <form id="registerForm" action="php\function\register.php" class="input-group" method="post" enctype="multipart/form-data">
             <input type="text" name="name" class="input-field" placeholder="FullName">
             <input type="email" name="email" class="input-field" placeholder="Username/Email">
             <input type="tel" name="phone" class="input-field" placeholder="Phone Number">
-            <select name="national" id="" class="input-field">
+            <select name="nationality" id="" class="input-field">
                 <option value="none">-Choose Nationality-</option>
                 <option value="kenyan">Kenyan</option>
                 <option value="foreigner">Other Country</option>
@@ -62,8 +62,6 @@ include "views/partials/header.php"
                 <input type="checkbox" name="" id="" class="check-box"><span>Remember Me</span>
             </div>
             <button type="submit" class="submit-btn">Register</button>
-
-
         </form>
 
     </div>
