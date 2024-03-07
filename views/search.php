@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function() {
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            if ($row['type'] == "hire") {
+            if ($row['Type'] == "hire") {
         ?>
                 <div class="car-card">
                     <div class="car-wrap">
                         <div class="car-image">
-                            <img src="../images/carsImages/<?php echo $row['image_name']; ?>" alt="">
+                            <img src="../images/carsImages/<?php echo $row['Image_name']; ?>" alt="">
                         </div>
                         <div class="text">
                             <h2><a href="#"><?php echo $row['Make']; ?></a></h2>
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="car-card">
                     <div class="car-wrap">
                         <div class="car-image">
-                            <img src="../images/carsImages/<?php echo $row['image_name']; ?>" alt="">
+                            <img src="../images/carsImages/<?php echo $row['Image_name']; ?>" alt="">
                         </div>
                         <div class="text">
                             <h2><a href="#"><?php echo $row['Make']; ?></a></h2>

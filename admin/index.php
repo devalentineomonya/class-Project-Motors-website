@@ -16,12 +16,8 @@
         </div>
         <div class="content">
             <?php
-            // Include necessary files and initialize database connection
-            
-            // Determine which page to display based on the URL parameter
             $page = isset($_GET['page']) ? $_GET['page'] : 'hired';
-            
-            // Include the corresponding page based on the parameter value
+
             if ($page === 'hired') {
                 include 'hired.php';
             } elseif ($page === 'bought') {

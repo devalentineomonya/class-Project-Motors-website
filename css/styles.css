@@ -353,7 +353,7 @@ FOOTER SECTION
 
 .footer-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding: 20px 50px;
 }
@@ -915,7 +915,7 @@ LOGIN FORM
 
 .login-container .form-box {
     width: 380px;
-    height: 480px;
+    height: 500px;
     position: relative;
     margin: 6% auto;
     background: #fff;

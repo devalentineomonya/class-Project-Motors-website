@@ -20,7 +20,7 @@ $hiredCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>No.</th>
             <th>Car Name</th>
             <th>Customer Name</th>
-            <th>Amount Per Day</th>
+            <th>Car Price</th>
             <th>Sale Date</th>
             <th>Actions</th>
         </tr>

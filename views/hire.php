@@ -42,7 +42,7 @@ include "views/partials/header.php"
             <div class="car-card">
                 <div class="car-wrap">
                     <div class="car-image">
-                        <img src="../images/carsImages/<?php echo $row['image_name']; ?>" alt="">
+                        <img src="../images/carsImages/<?php echo $row['Image_name']; ?>" alt="">
                     </div>
                     <div class="text">
                         <h2><a href="#"><?php echo $row['Make']; ?></a></h2>

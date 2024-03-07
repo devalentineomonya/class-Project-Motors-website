@@ -12,7 +12,7 @@ $routes = [
     "/index.php" => "views/home.php",
     "/contact" => "views/contact.php",
     "/logout" => "php/config/logout.php"
-    
+
 ];
 
 $request_url = $_SERVER["REQUEST_URI"];
@@ -25,4 +25,3 @@ if (array_key_exists($request_url, $routes)) {
 } else {
     include_once "views/404.php";
 }
-?>
