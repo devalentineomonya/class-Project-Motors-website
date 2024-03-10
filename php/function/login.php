@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("SELECT * FROM customers WHERE Email = ?");
         if ($stmt->execute([$email])) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($user && password_verify($password, $user['password'])) {
+            if ($user && password_verify($password, $user['Password'])) {
                 return $user;
             }
         }

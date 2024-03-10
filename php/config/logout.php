@@ -1,4 +1,6 @@
 <?php
 session_start();
-unset($_SESSION["currentUser"]);
+if (isset($_SESSION["currentUser"])) {
+    unset($_SESSION["currentUser"]);
+}
 header("Location: /home");

@@ -9,7 +9,7 @@ function hashPassword($password)
     return password_hash($password, PASSWORD_DEFAULT);
 }
 
-// Function to check if a user with the given email already exists
+
 function emailExists($email)
 {
     global $pdo;
@@ -52,11 +52,33 @@ function registerUser($name, $email, $phone, $nationality, $image, $password)
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (empty($_POST['name'])) {
+        $_SESSION['authError'] = "Name field is missing.";
+        header('Location: /login');
+        exit;
+    } elseif (empty($_POST['email'])) {
+        $_SESSION['authError'] = "Email field is missing.";
+        header('Location: /login');
+        exit;
+    } elseif (empty($_POST['phone'])) {
+        $_SESSION['authError'] = "Phone field is missing.";
+        header('Location: /login');
+        exit;
+    } elseif (empty($_POST['password'])) {
+        $_SESSION['authError'] = "Password field is missing.";
+        header('Location: /login');
+        exit;
+    } elseif (empty($_POST['nationality'])) {
+        $_SESSION['authError'] = "Nationality field is missing.";
+        header('Location: /login');
+        exit;
+    }
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = $_POST['password'];
-    $nationality = $_POST['national'];
+    $nationality = $_POST['nationality'];
     $image = $_FILES['userid'];
 
     if (registerUser($name, $email, $phone, $nationality, $image, $password)) {
@@ -73,4 +95,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-?>

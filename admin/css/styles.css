@@ -1,18 +1,13 @@
-/* CSS code to style the page */
-
-/* Reset default margin and padding */
 body, table {
     margin: 0;
     padding: 0;
 }
-
-/* Set font family and size */
 body {
     font-family: Arial, sans-serif;
     font-size: 14px;
 }
 
-/* CSS code to style the navigation links */
+
 
 .navigation {
     margin-bottom: 20px;
@@ -32,8 +27,11 @@ body {
 .navigation a:hover {
     background-color: #ddd;
 }
+.buttons{
+    display: flex;
+}
 
-/* styles.css */
+
 .container {
     width: 80%;
     margin: 0 auto;
@@ -87,30 +85,27 @@ tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Style table cells */
+
 td {
     padding: 10px;
 }
 
-/* Style the h2 heading */
 h2 {
     margin-top: 20px;
 }
 
-/* Style the Actions column */
+
 td:last-child {
     text-align: center;
 }
 
-/* Add hover effect to table rows */
+
 tr:hover {
     background-color: #f5f4f4;
 }
-/* CSS code to style the buttons under the action column */
 
-/* Style accept button */
 .accept {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 8px 16px;
@@ -121,11 +116,12 @@ tr:hover {
     margin-right: 5px;
     cursor: pointer;
     border-radius: 4px;
+    
 }
 
-/* Style reject button */
+
 .reject {
-    background-color: #f44336; /* Red */
+    background-color: #f44336; 
     border: none;
     color: white;
     padding: 8px 16px;
@@ -136,6 +132,12 @@ tr:hover {
     cursor: pointer;
     border-radius: 4px;
 }
-.buttons{
-    display: flex;
+
+.error-message {
+    background-color: #ffdddd;
+    color: #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
 }

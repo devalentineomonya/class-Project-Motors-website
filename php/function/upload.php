@@ -1,15 +1,22 @@
 <?php
 
-function uploadFile($file) {
+function uploadFile($file)
+{
     if ($file['error'] === UPLOAD_ERR_OK) {
         $tempFile = $file['tmp_name'];
-        $fileName = basename($file['name']);
-        
-        $uploadDir = 'images/uploads/'; 
-        $targetFile = $uploadDir . $fileName;
-        
+        $fileOriginalName = basename(strtolower( $file['name']));
+        $randomString = bin2hex(random_bytes(10)); // Generate a random string of 10 characters
+        $randomFileName =$randomString .  '_' .  $fileOriginalName; // Combine original name with random string
+
+        $uploadDir = dirname(__DIR__, 2) . '/images/uploads/';
+        $targetFile = $uploadDir . $randomFileName;
+
+        if (!is_dir($uploadDir) && !mkdir($uploadDir, 0777, true)) {
+            return "Error: Failed to create target directory.";
+        }
+
         if (move_uploaded_file($tempFile, $targetFile)) {
-            $result['name'] = $fileName;
+            $result['name'] = $randomFileName;
             return $result;
         } else {
             return "Error: Failed to move uploaded file.";
@@ -35,5 +42,3 @@ function uploadFile($file) {
         }
     }
 }
-
-?>
