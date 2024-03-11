@@ -16,6 +16,7 @@
 body {
     font-family: Roboto, Poppins, Arial, sans-serif;
 }
+
 /* 
 ===================================
 TOP NAVBAR ON MD AND LARGE SCREENS
@@ -188,23 +189,115 @@ NAVIGATION DIVISION
     bottom: 1px;
 }
 
+
+
+/* 
+============================
+CAR FILTER SECTION
+============================
+
+*/
+.car-booking-section {
+    padding: 50px 0;
+}
+
+.car-booking-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.car-booking-section .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.car-booking-section .image-container {
+    flex: 1;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.car-booking-section .image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.car-booking-section .form-container {
+
+    width: 450px;
+    height: 500px;
+}
+
+.car-booking-section .section-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.car-booking-section .booking-form {
+    background-color: #f8f8f8;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 490px;
+}
+
+.car-booking-section .form-group {
+    margin-bottom: 40px;
+}
+
+.car-booking-section label {
+    font-size: 18px;
+    color: #333;
+}
+
+.car-booking-section input[type="date"],
+.car-booking-section input[type="number"],
+.car-booking-section select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.car-booking-section input[type="date"],
+.car-booking-section input[type="number"] {
+    height: 40px;
+}
+
+.car-booking-section .btn {
+    display: inline-block;
+    background-color: var(--simba-red);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.car-booking-section .btn:hover {
+    background-color: #ec1b22a7;
+}
+
 /* 
 ===============================
 MIDDLE SECTION
 ===============================
 */
 
-
 .middle-section {
-    padding: 10px;
-    text-align: center;
-    margin: 10px 300px;
-}
-
-.middle-section p {
-    font: 14px/1.5 Roboto;
-    color: #404040;
-    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .middle-section h1 {
@@ -212,13 +305,22 @@ MIDDLE SECTION
     color: var(--simba-red);
     font-weight: 600;
     font-size: 40px;
+    text-align: center;
 }
+
+/* 
+==================
+FEATURED CARS
+==================
+*/
 
 .category-section-container {
     height: 300px;
-    width: 100%;
+    width: 90%;
     display: flex;
     background-color: #000000fc;
+    overflow: hidden;
+
 }
 
 .category-section-container .motor-category {
@@ -229,6 +331,10 @@ MIDDLE SECTION
     flex-direction: column;
     transition: background-color 0.4s ease-in-out;
     cursor: pointer;
+    padding: 0 30px;
+    margin-right: 10px;
+
+
 }
 
 .category-section-container .motor-category:hover {
@@ -236,13 +342,15 @@ MIDDLE SECTION
 }
 
 .category-section-container .motor-category img {
-    width: 60px;
+    width: 300px;
+    height: 200px;
 }
 
 .category-section-container .motor-category h3 {
     color: #fff;
     font-weight: 100;
     margin-top: 20px;
+
 }
 
 
@@ -309,33 +417,43 @@ LOCATION DISTRIBUTION SECTION
 
 /* 
 =============================
-PARTNER SECTION
+COUNTER SECTION
 =============================
 */
-.company-partners {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
 
-.company-partners .partners-images p {
-    color: var(--simba-red);
-    font-weight: 500;
-    font-size: 35px;
-    text-align: center;
-}
-
-.company-partners .partners-images .image-container {
+.counter-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    height: 300px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    overflow-x: hidden;
-    margin: 30px 0 20px;
 }
 
-.company-partners .partners-images img {
-    width: 100px;
+.counter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    column-gap: 100px;
+    justify-content: space-between;
+}
+
+.counter-item {
+    text-align: center;
+
+}
+
+.counter-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.counter-value {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--simba-red);
 }
 
 /* 
@@ -561,7 +679,7 @@ CONTACT FORM
     background-color: var(--simba-red);
     color: #fff;
     border: none;
-
+    cursor: pointer;
 }
 
 /* 
@@ -1188,7 +1306,7 @@ MEDIA QUERY
         height: 50%;
     }
 
-   
+
 }
 
 @media screen and (max-width: 576px) {

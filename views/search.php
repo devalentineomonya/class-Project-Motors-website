@@ -11,18 +11,30 @@ include "views/partials/header.php"
 </style>
 
 <?php
-echo '<script>
+if (!empty($_GET['s'])) {
+    echo '<script>
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementsByClassName("h1top")[0].textContent = "Result For ' . (isset($_GET['s']) ? $_GET['s'] : '') . '";
-    document.title = "Result For ' . (isset($_GET['s']) ? $_GET['s'] : '') . '";
+    document.getElementsByClassName("h1top")[0].textContent = "Result For ' . $_GET['s'] . '";
+    document.title = "Result For ' . $_GET['s'] . '";
 });
 </script>';
+} else {
+    echo '<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementsByClassName("h1top")[0].textContent = "Result For ' . ($_GET['type'] && $_GET['category'] ? ($_GET['type'] . " | " . $_GET['category']) : '') . '";
+    document.title = "Result For ' . ($_GET['type'] && $_GET['category'] ? ($_GET['type'] . " | " . $_GET['category']) : '') . '";
+});
+</script>';
+}
 ?>
+
+
+
 
 
 <section class="car-container">
     <div class="title">
-        <h1 class="cars-title">Search '<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>'</h1>
+        <h1 class="cars-title">Search '<?php echo (!empty($_GET['s']) ? $_GET['s'] : (!empty($_GET['type']) && !empty($_GET['category']) ? $_GET['type'] . ' | ' . $_GET['category'] : '')); ?>'</h1>
 
     </div>
     <div class="row">
@@ -31,15 +43,65 @@ document.addEventListener("DOMContentLoaded", function() {
         $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
         $offset = ($page - 1) * $carsPerPage;
 
-        // Check if search parameter is provided
+        // Define search parameters
         $search = isset($_GET['s']) ? $_GET['s'] : '';
+        $category = isset($_GET['category']) ? $_GET['category'] : '';
+        $type = isset($_GET['type']) ? $_GET['type'] : '';
 
-        // Modify the SQL query to include search parameter
-        $stmt = $pdo->prepare("SELECT * FROM cars WHERE (LOWER(Make) LIKE LOWER(:search) OR LOWER(Model) LIKE LOWER(:search) OR LOWER(type) LIKE LOWER(:search)) LIMIT :limit OFFSET :offset");
-        $stmt->bindValue(":search", "%$search%");
+        // Prepare the base SQL query
+        $sql = "SELECT * FROM cars WHERE 1=1";
+
+        // Add conditions based on search parameters
+        if (!empty($search)) {
+            $sql .= " AND (LOWER(Make) LIKE LOWER(:search) OR LOWER(Model) LIKE LOWER(:search) OR LOWER(Type) LIKE LOWER(:search))";
+        }
+
+        if (!empty($category)) {
+            // Fetch CategoryID for the given category name
+            $categoryStmt = $pdo->prepare("SELECT CategoryID FROM categories WHERE CategoryName = :category");
+            $categoryStmt->bindValue(":category", $category);
+            $categoryStmt->execute();
+            $categoryRow = $categoryStmt->fetch(PDO::FETCH_ASSOC);
+
+            // Check if category exists
+            if ($categoryRow !== false) {
+                $sql .= " AND CategoryID = :categoryID";
+
+                $categoryID = $categoryRow['CategoryID'];
+            } else {
+                // Set a default value for $categoryID
+                $categoryID = null;
+            }
+        }
+
+        if (!empty($type)) {
+            $sql .= " AND Type = :type";
+        }
+
+        // Add limit and offset for pagination
+        $sql .= " LIMIT :limit OFFSET :offset";
+
+        // Prepare and execute the statement
+        $stmt = $pdo->prepare($sql);
         $stmt->bindValue(":limit", $carsPerPage, PDO::PARAM_INT);
         $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+
+        // Bind search parameters if provided
+        if (!empty($search)) {
+            $stmt->bindValue(":search", "%$search%");
+        }
+
+        // Bind category ID if it's valid
+        if ($categoryID !== null) {
+            $stmt->bindValue(":categoryID", $categoryID);
+        }
+
+        if (!empty($type)) {
+            $stmt->bindValue(":type", $type);
+        }
+
         $stmt->execute();
+
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             if ($row['Type'] == "hire") {
@@ -146,33 +208,44 @@ document.addEventListener("DOMContentLoaded", function() {
         ?>
     </div>
     <?php
-    $totalCarsStmt = $pdo->prepare("SELECT  COUNT(*) AS totalCars FROM cars WHERE (Make LIKE :search OR Model LIKE :search OR type LIKE :search)");
-    $totalCarsStmt->bindValue(":search", "%$search%");
-    $totalCarsStmt->execute();
-    $totalCarsResult = $totalCarsStmt->fetch(PDO::FETCH_ASSOC);
-    $totalCars = $totalCarsResult['totalCars'];
-    $totalPages = ceil($totalCars / $carsPerPage);
+    if (!empty($search)) {
+        $totalCarsStmt = $pdo->prepare("SELECT COUNT(*) AS totalCars FROM cars WHERE (Make LIKE :search OR Model LIKE :search OR Type LIKE :search)");
+        $totalCarsStmt->bindValue(":search", "%$search%");
+        $totalCarsStmt->execute();
+        $totalCarsResult = $totalCarsStmt->fetch(PDO::FETCH_ASSOC);
+        $totalCars = $totalCarsResult['totalCars'];
+        $totalPages = ceil($totalCars / $carsPerPage);
+    } elseif (!empty($type) && !empty($category)) {
+        // Assuming you have fetched the appropriate category ID based on the category name
+        // Add condition based on both type and category
+        $totalCarsStmt = $pdo->prepare("SELECT COUNT(*) AS totalCars FROM cars WHERE Type = :type AND CategoryID = :categoryID");
+        $totalCarsStmt->bindValue(":type", $type);
+        $totalCarsStmt->bindValue(":categoryID", $categoryID); // Assuming you have fetched the category ID
+        $totalCarsStmt->execute();
+        $totalCarsResult = $totalCarsStmt->fetch(PDO::FETCH_ASSOC);
+        $totalCars = $totalCarsResult['totalCars'];
+        $totalPages = ceil($totalCars / $carsPerPage);
+    }
     ?>
     <div class="pagination-row">
         <div class="col text-center">
             <div class="block-27">
                 <ul>
                     <?php if ($page > 1) : ?>
-                        <li><a href="?page=<?php echo ($page - 1); ?>&s=<?php echo $search; ?>">&lt;</a></li>
+                        <li><a href="?page=<?php echo ($page - 1); ?><?php echo isset($search) && !empty($search) ? '&s=' . urlencode($search) : ''; ?><?php echo isset($type) && isset($category) ? '&type=' . urlencode($type) . '&category=' . urlencode($category) : ''; ?>">&lt;</a></li>
                     <?php endif; ?>
-                    <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
-                        <li <?php if ($i === $page) echo 'class="active"'; ?>><a href="?page=<?php echo $i; ?>&s=<?php echo $search; ?>"><?php echo $i; ?></a></li>
+                    <?php for ($i = max(1, $page - 2); $i <= min($totalPages, $page + 2); $i++) : ?>
+                        <li <?php if ($i === $page) echo 'class="active"'; ?>><a href="?page=<?php echo $i; ?><?php echo isset($search) && !empty($search) ? '&s=' . urlencode($search) : ''; ?><?php echo isset($type) && isset($category) ? '&type=' . urlencode($type) . '&category=' . urlencode($category) : ''; ?>"><?php echo $i; ?></a></li>
                     <?php endfor; ?>
                     <?php if ($page < $totalPages) : ?>
-                        <li><a href="?page=<?php echo ($page + 1); ?>&s=<?php echo $search; ?>">&gt;</a></li>
+                        <li><a href="?page=<?php echo ($page + 1); ?><?php echo isset($search) && !empty($search) ? '&s=' . urlencode($search) : ''; ?><?php echo isset($type) && isset($category) ? '&type=' . urlencode($type) . '&category=' . urlencode($category) : ''; ?>">&gt;</a></li>
                     <?php endif; ?>
                 </ul>
-
             </div>
         </div>
     </div>
-    <?php
-    ?>
+
+
 </section>
 
 <?php

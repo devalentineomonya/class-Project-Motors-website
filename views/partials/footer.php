@@ -66,6 +66,7 @@
 
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
 <script src="js/carousel.js"></script>
 <script src="js/main.js"></script>
@@ -117,6 +118,22 @@
     ScrollReveal().reveal(' .cars-title', {
         origin: 'right'
     })
+
+    var swiper = new Swiper('.category-section-container', {
+        slidesPerView: 'auto',
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+
+
 </script>
 </body>
 
