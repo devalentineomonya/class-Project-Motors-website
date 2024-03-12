@@ -17,7 +17,6 @@ include "views/partials/header.php"
     document.title = "About Us";
   });
 </script>
-
 <div class="responsive-container-block outer-container">
   <div class="responsive-container-block inner-container">
     <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-4 wk-ipaditp-5 content-container">
@@ -32,236 +31,34 @@ include "views/partials/header.php"
     </div>
     <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-8 team-cards-outer-container">
       <div class="responsive-container-block team-cards-inner-container">
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person1.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Lucy Philip
-              </p>
-              <p class="text-blk person-info">
-                Senior Developer
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person2.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Claystone Barongo
-              </p>
-              <p class="text-blk person-info">
-                Project Manager
-              </p>
+        <?php
+        $stmt = $pdo->prepare("SELECT * FROM devsteam");
+        $stmt->execute();
+        while ($memberDetails = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        ?>
+          <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
+            <div class="card">
+              <div class="img-box">
+                <img class="person-img" src="<?php echo $memberDetails['MemberImg']; ?>">
+              </div>
+              <div class="card-content-box">
+                <p class="text-blk person-name">
+                  <?php echo $memberDetails['MemberName']; ?>
+                </p>
+                <p class="text-blk person-info">
+                  <?php echo $memberDetails['MemberRole']; ?>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Ryan Kiplangat
-              </p>
-              <p class="text-blk person-info">
-                Database Administrator
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person4.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Bethuel Maluti
-              </p>
-              <p class="text-blk person-info">
-                Front Developer
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Samson Mulwa
-              </p>
-              <p class="text-blk person-info">
-                Network Administrator
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Wanjiru Anabel
-              </p>
-              <p class="text-blk person-info">
-                UI/UX Designer
-
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Everlyne Nyambura
-              </p>
-              <p class="text-blk person-info">
-                Group Co-Ordinator
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Valentine Mutinda
-              </p>
-              <p class="text-blk person-info">
-                Backend Developer
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Mercy Jemutai
-              </p>
-              <p class="text-blk person-info">
-                Security Administrator
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Lawrence Gichero
-              </p>
-              <p class="text-blk person-info">
-                Web Administrator
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Moses Otieno
-              </p>
-              <p class="text-blk person-info">
-                API Integrations
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Hillary Odoo
-              </p>
-              <p class="text-blk person-info">
-                Algorithms Designer
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                EddyCollins Muthomi
-              </p>
-              <p class="text-blk person-info">
-                System Designer
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Daniel Sila
-              </p>
-              <p class="text-blk person-info">
-                Technical Support
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-          <div class="card">
-            <div class="img-box">
-              <img class="person-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/person3.png">
-            </div>
-            <div class="card-content-box">
-              <p class="text-blk person-name">
-                Fredrick Otieno
-              </p>
-              <p class="text-blk person-info">
-                System Testing
-              </p>
-            </div>
-          </div>
-        </div>
+        <?php
+        }
+        ?>
       </div>
     </div>
   </div>
 </div>
+
 <section class="location-distribution">
   <div class="left-section">
     <h1>Distribution Network</h1>

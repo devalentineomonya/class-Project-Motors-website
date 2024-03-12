@@ -1,5 +1,5 @@
 <?php
-include_once '../php/config/connection.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['del_cust'])) {
 
@@ -79,7 +79,7 @@ if (isset($_SESSION["Delerror"])) {
                 <td class="buttons">
 
                     <a href="mailto:<?php echo $customerDetails['Email'] ?>" class="accepted">Contact</a>
-                    <form method="post">
+                    <form method="post" onsubmit="return confirm('Are you sure you want to delete this member?')">
                         <input hidden name="cust_id" value="<?php echo $customerDetails['CustomerID']; ?>">
                         <input hidden name="image" value="<?php echo $customerDetails['image']; ?>">
                         <button type="submit" name="del_cust" class="reject">Delete</button>

@@ -29,8 +29,11 @@ body {
 }
 .buttons{
     display: flex;
+    
 }
-
+.member-buttons{
+    border: none;
+}
 
 .container {
     width: 80%;
@@ -135,4 +138,85 @@ tr:hover {
     margin-bottom: 10px;
     border: 1px solid #ff0000;
     border-radius: 5px;
+}
+.success-message {
+    background-color: #dff0d8; /* Light green background */
+    color: #3c763d; /* Dark green text color */
+    border: 1px solid #d6e9c6; /* Green border */
+    padding: 10px 15px; /* Padding around the message */
+    margin-bottom: 15px; /* Bottom margin to create space between messages */
+    border-radius: 4px; /* Rounded corners */
+}
+
+
+/* Styles for form container */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for form */
+.member-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles for form inputs */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Styles for file input */
+.file-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+/* Styles for submit button */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+.member-img {
+    width: 80px;
+    height: 80px;
+    /* Add any additional styling here */
+}
+.add-member-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 30px;
+}
+
+.add-member-btn:hover {
+    background-color: #45a049;
 }

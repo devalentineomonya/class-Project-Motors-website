@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once '../php/config/connection.php';
 ?>
 <!DOCTYPE html>
 <html lang='en'>
@@ -18,6 +19,8 @@ session_start();
             <a href='index.php?page=hired'>Hired Cars</a>
             <a href='index.php?page=bought'>Bought Cars</a>
             <a href='index.php?page=customers'>Customers</a>
+            <a href='index.php?page=members'>Members</a>
+
         </div>
         <div class='content'>
             <?php
@@ -29,6 +32,10 @@ session_start();
                 include 'bought.php';
             } elseif ($page === 'customers') {
                 include 'customers.php';
+            } elseif ($page === 'members') {
+                include 'members.php';
+            } elseif ($page === 'addmember') {
+                include 'addmember.php';
             } else {
                 echo '<p>Invalid page</p>';
             }

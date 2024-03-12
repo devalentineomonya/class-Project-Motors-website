@@ -61,7 +61,7 @@ $hiredCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?php else : ?>
                         <button class="accepted">Approved</button>
                     <?php endif; ?>
-                    <form method="post">
+                    <form method="post" onsubmit="return confirm('Are you sure you want to delete this member?')">
                         <input type="hidden" name="car_id" value="<?php echo $car['CarID']; ?>">
                         <button type="submit" name="del_hire" class="reject">Delete</button>
                     </form>

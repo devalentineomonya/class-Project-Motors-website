@@ -1,6 +1,5 @@
 <?php
-// Include database connection file
-include_once '../php/config/connection.php';
+
 
 if (isset($_POST['del_purchase'])) {
     $carID = $_POST['car_id'];
@@ -57,7 +56,7 @@ $hiredCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?php else : ?>
                         <button class="accepted">Approved</button>
                     <?php endif; ?>
-                    <form method="post">
+                    <form method="post" onsubmit="return confirm('Are you sure you want to delete this member?')">
                         <input type="hidden" name="car_id" value="<?php echo $car['CarID']; ?>">
                         <button type="submit" name="del_purchase" class="reject">Delete</button>
                     </form>
