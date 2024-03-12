@@ -1,9 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@100;200;300;400;500;600;800&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Dosis';
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
+}
 
 :root {
-    --simba-red: #ec1b23;
-    --simba-dark: #000000fc;
+    --simba-primary: #007bff;
+    --simba-dark: #333333;
 }
 
 * {
@@ -86,7 +100,7 @@ TOP NAVBAR ON MD AND LARGE SCREENS
 
 .nav-d-flex .nav-item .nav-link:hover {
     background-color: #fff;
-    color: var(--simba-red);
+    color: var(--simba-primary);
 }
 
 .nav-search button {
@@ -159,7 +173,7 @@ SEARCH OVERLAY
 .search-overlay .search-content input {
     width: 500px;
     background-color: transparent;
-    border-bottom: 2px solid var(--simba-red);
+    border-bottom: 2px solid var(--simba-primary);
     height: 40px;
     outline: none;
     color: #fff;
@@ -273,7 +287,7 @@ CAR FILTER SECTION
 
 .car-booking-section .btn {
     display: inline-block;
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -284,7 +298,7 @@ CAR FILTER SECTION
 }
 
 .car-booking-section .btn:hover {
-    background-color: #ec1b22a7;
+    background-color: #007bff9d;
 }
 
 /* 
@@ -300,12 +314,18 @@ MIDDLE SECTION
     flex-direction: column;
 }
 
-.middle-section h1 {
+.middle-section h1,
+.filter-title {
     margin-top: 1.5rem;
-    color: var(--simba-red);
+    color: var(--simba-primary);
     font-weight: 600;
     font-size: 40px;
     text-align: center;
+}
+
+.filter-title {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 /* 
@@ -338,7 +358,7 @@ FEATURED CARS
 }
 
 .category-section-container .motor-category:hover {
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
 }
 
 .category-section-container .motor-category img {
@@ -366,7 +386,7 @@ LOCATION DISTRIBUTION SECTION
 }
 
 .left-section {
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
     width: 60%;
 }
 
@@ -442,7 +462,16 @@ COUNTER SECTION
 
 .counter-item {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.counter-item img {
+    width: 60px;
+    height: 60px;
 }
 
 .counter-name {
@@ -452,9 +481,10 @@ COUNTER SECTION
 }
 
 .counter-value {
-    font-size: 36px;
+    font-size: 50px;
     font-weight: bold;
-    color: var(--simba-red);
+    color: var(--simba-primary);
+    font-family: 'Dosis';
 }
 
 /* 
@@ -486,6 +516,10 @@ FOOTER SECTION
     flex-direction: column;
     align-items: flex-start;
 }
+.footer-content-left span{
+color: var(--simba-primary);
+margin: 10px 0;
+}
 
 .intouch,
 .social-links-title,
@@ -513,7 +547,7 @@ FOOTER SECTION
     width: 50%;
     height: 2px;
     top: -8px;
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
     position: absolute;
 }
 
@@ -528,13 +562,17 @@ input,
 .submit-button {
     width: 100px;
     color: #fff;
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
 }
 
 .footer-icons {
     display: flex;
     column-gap: 20px;
     margin-top: 10px;
+
+}
+.footer-icons li{
+    list-style: none;
 }
 
 .footer-icons svg {
@@ -548,6 +586,7 @@ input,
 
 .footer-content-center .footer-links li {
     margin-top: 5px;
+    list-style: none;
 }
 
 .underline-effect {
@@ -560,7 +599,7 @@ input,
     content: "";
     width: 0%;
     height: 1px;
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
     position: absolute;
     bottom: 0;
     transition: all 0.3s ease-in-out;
@@ -581,7 +620,9 @@ input,
     margin-bottom: 20px;
 }
 
-
+.port li{
+    list-style: none;
+}
 /* 
 ============================
 CONTACT FORM
@@ -598,7 +639,7 @@ CONTACT FORM
 .contact-form-container h2 {
     font-size: 35px;
     font-weight: 500;
-    color: var(--simba-red);
+    color: var(--simba-primary);
     text-align: center;
     margin-bottom: 10px;
 }
@@ -624,7 +665,7 @@ CONTACT FORM
 }
 
 .contact-container .icon span {
-    color: var(--simba-red);
+    color: var(--simba-primary);
     font-size: 18px;
     margin-top: 10px;
 }
@@ -677,7 +718,7 @@ CONTACT FORM
 .contact-form .col-6 button {
     padding: 15px 60px;
     border-radius: 0;
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -702,7 +743,7 @@ CONTACT NETWORK
 .network-container .network-title {
     font-size: 40px;
     font-weight: 400;
-    color: var(--simba-red);
+    color: var(--simba-primary);
     text-align: left;
     display: block;
 }
@@ -748,7 +789,7 @@ CAR CONTAINER SECTION
 }
 
 .car-container .title h1 {
-    color: var(--simba-red);
+    color: var(--simba-primary);
     font-size: 40px;
     text-align: center;
     font-weight: 500;
@@ -840,7 +881,7 @@ CAR CONTAINER SECTION
 }
 
 .car-card .car-wrap .text .car-text-d-flex .price {
-    color: var(--simba-red);
+    color: var(--simba-primary);
     font-size: 18px;
     font-family: 800;
 }
@@ -877,7 +918,7 @@ CAR CONTAINER SECTION
 }
 
 .car-card .car-wrap .text .car-button-d-flex button {
-    background-color: var(--simba-red);
+    background-color: var(--simba-primary);
     height: 44px;
 
 }
@@ -1013,7 +1054,7 @@ CARS PAGINATION
 
 .block-27 ul li.active a,
 .block-27 ul li.active span {
-    background: var(--simba-red);
+    background: var(--simba-primary);
     color: #fff;
     border: 1px solid transparent;
 }
@@ -1077,7 +1118,7 @@ LOGIN FORM
     position: absolute;
     width: 110px;
     height: 100%;
-    background: linear-gradient(to right, var(--simba-red), #ff105f, #fff 100%);
+    background: linear-gradient(to right, var(--simba-primary), #1093ff, #fff 100%);
     border-radius: 30px;
     transition: 0.5s;
     white-space: nowrap;
@@ -1138,7 +1179,7 @@ LOGIN FORM
     cursor: pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(to right, var(--simba-red), #ff105f, #fff 100%);
+    background: linear-gradient(to right, var(--simba-primary), #1093ff, #fff 100%);
     border: none;
     outline: none;
     border-radius: 30px;
@@ -1175,7 +1216,7 @@ LOGIN FORM
 
 .go-home-button {
     padding: 10px 20px;
-    background-color: #ec1b22;
+    background-color: var(--simba-primary);
     color: #fff;
     font-size: 16px;
     border: none;
@@ -1185,7 +1226,7 @@ LOGIN FORM
 }
 
 .go-home-button:hover {
-    background-color: #ec1b22c3;
+    background-color: #007bff9d;
 
 }
 
@@ -1384,7 +1425,7 @@ MEDIA QUERY
     }
 
     .scrolled {
-        background-color: var(--simba-red);
+        background-color: var(--simba-primary);
     }
 
     .scrolled .mobile-menu {
@@ -1411,7 +1452,7 @@ MEDIA QUERY
 
 
     .mobile-menu {
-        border: 2px solid var(--simba-red);
+        border: 2px solid var(--simba-primary);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -1427,7 +1468,7 @@ MEDIA QUERY
     .mobile-menu .line {
         height: 3px;
         width: 100%;
-        background-color: var(--simba-red);
+        background-color: var(--simba-primary);
     }
 
     .mobile-menu .line:nth-child(2) {
@@ -1542,7 +1583,7 @@ MOBILE DEVICE SIDE MENU OVERLAY
         width: 90%;
         height: 30px;
         background-color: transparent;
-        border-bottom: 2px solid var(--simba-red);
+        border-bottom: 2px solid var(--simba-primary);
         font-size: 18px;
     }
 

@@ -21,7 +21,9 @@ include "views/partials/header.php"
 
 
 <section class="car-booking-section">
-    <h2 class="section-title">Choose A Car</h2>
+    <div class="middle-section">
+        <h1 class="filter-title">Choose To Filter</h1>
+    </div>
     <div class="container">
         <div class="flex-container">
             <div class="image-container">
@@ -134,18 +136,22 @@ include "views/partials/header.php"
 <section class="counter-section">
     <div class="counter-container">
         <div class="counter-item">
+            <img src="../images/siteImages/hand-shake.png" alt="">
             <h2 class="counter-name">Customers Served</h2>
             <p class="counter-value">5000</p>
         </div>
         <div class="counter-item">
+            <img src="../images/siteImages/car.png" alt="">
             <h2 class="counter-name">Cars Available</h2>
             <p class="counter-value">200</p>
         </div>
         <div class="counter-item">
+            <img src="../images/siteImages/smile.png" alt="">
             <h2 class="counter-name">Happy Clients</h2>
             <p class="counter-value">1500</p>
         </div>
         <div class="counter-item">
+            <img src="../images/siteImages/clock.png" alt="">
             <h2 class="counter-name">Years of Experience</h2>
             <p class="counter-value">10</p>
         </div>

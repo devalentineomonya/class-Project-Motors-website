@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <img class="close-video-btn" src="../images/siteImages/close.png" alt="">
                         <div class="video-content">
                             <video controls autoplay class="video-player">
-                                <source src="../videos/carDemo/<?php echo $row['video_name']; ?>" type="video/mp4">
+                                <source src="../videos/<?php echo $row['video_name']; ?>" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <img class="close-video-btn" src="../images/siteImages/close.png" alt="">
                         <div class="video-content">
                             <video controls autoplay class="video-player">
-                                <source src="../videos/carDemo/<?php echo $row['video_name']; ?>" type="video/mp4">
+                                <source src="../videos/<?php echo $row['video_name']; ?>" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
