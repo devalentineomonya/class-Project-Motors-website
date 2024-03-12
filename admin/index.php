@@ -6,7 +6,7 @@ session_start();
 
 <head>
     <meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.o'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.o'>
     <title>Admin Panel</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -35,6 +35,24 @@ session_start();
             ?>
         </div>
     </div>
+    <script>
+        function approveCar(actionId, action) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "../php/function/process_action.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Handle response here if needed
+                    console.log(xhr.responseText);
+                    // Reload the page to reflect the changes
+                    location.reload();
+                }
+            };
+            xhr.send("action=approve_" + action + "&ActionID=" + actionId);
+        }
+    </script>
+
+    </script>
 </body>
 
 </html>

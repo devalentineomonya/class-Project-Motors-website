@@ -105,23 +105,16 @@ tr:hover {
 }
 
 .accept {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin-right: 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    
+    background-color: #FFA500; 
 }
-
-
+.accepted{
+    background-color: #4CAF50;
+}
 .reject {
     background-color: #f44336; 
+}
+
+.accepted, .reject, .accept {
     border: none;
     color: white;
     padding: 8px 16px;
@@ -131,7 +124,9 @@ tr:hover {
     font-size: 14px;
     cursor: pointer;
     border-radius: 4px;
+    margin-right: 5px;
 }
+
 
 .error-message {
     background-color: #ffdddd;

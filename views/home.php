@@ -21,14 +21,14 @@ include "views/partials/header.php"
 
 
 <section class="car-booking-section">
-<h2 class="section-title">Choose A Car</h2>
+    <h2 class="section-title">Choose A Car</h2>
     <div class="container">
         <div class="flex-container">
             <div class="image-container">
-                <img src="../images/siteImages/hero-image.jpg" alt="Car Image">
+                <img src="../images/siteImages/Proton-SAGA-Passanger-768x559.jpg" alt="Car Image">
             </div>
             <div class="form-container">
-               
+
                 <form class="booking-form" action="/search" method="get">
                     <div class="form-group">
                         <label for="booking-type">Choice Type</label>
@@ -138,7 +138,7 @@ include "views/partials/header.php"
             <p class="counter-value">5000</p>
         </div>
         <div class="counter-item">
-            <h2 class="counter-name">Projects Completed</h2>
+            <h2 class="counter-name">Cars Available</h2>
             <p class="counter-value">200</p>
         </div>
         <div class="counter-item">

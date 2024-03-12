@@ -21,6 +21,7 @@ $hiredCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>Car Name</th>
             <th>Customer Name</th>
             <th>Amount Per Day</th>
+            <th>Status</th>
             <th>Sale Date</th>
             <th>Actions</th>
         </tr>
@@ -51,10 +52,15 @@ $hiredCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $carDetails['Make']; ?></td>
                 <td><?php echo $customerDetails['Name']; ?></td>
                 <td>$<?php echo $carDetails['Price']; ?></td>
+                <td><?php echo $car['Status']; ?></td>
                 <td><?php echo $formattedDate ?></td>
                 <td class="buttons">
-
-                    <button class="accept">Accept</button>
+                    <?php if ($car['Status'] == "Pending") : ?>
+                        <button class="accept" onclick="approveCar(<?php echo $car['LoanID']; ?>, 'hire')">Approve</button>
+                      
+                    <?php else : ?>
+                        <button class="accepted">Approved</button>
+                    <?php endif; ?>
                     <form method="post">
                         <input type="hidden" name="car_id" value="<?php echo $car['CarID']; ?>">
                         <button type="submit" name="del_hire" class="reject">Delete</button>
