@@ -23,20 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['del_cust'])) {
         header('Location: index.php?page=customers');
         exit;
     }
-    
+
     if (isset($_SESSION["currentUser"]) && $_SESSION["currentUser"] == $CustomerID) {
         unset($_SESSION["currentUser"]);
     }
-    
+
 
     if (isset($_POST['image'])) {
-        $uploadDir = dirname(__DIR__,1) . '/images/uploads/';
+        $uploadDir = dirname(__DIR__, 1) . '/images/uploads/';
         $imageFilePath = $uploadDir . $_POST['image'];
         if (file_exists($imageFilePath)) {
             unlink($imageFilePath);
         }
     }
-    
+
     $stmt = $pdo->prepare("DELETE FROM customers WHERE CustomerID = ?");
     $stmt->execute([$CustomerID]);
 }
@@ -78,9 +78,9 @@ if (isset($_SESSION["Delerror"])) {
                 <td><?php echo $customerDetails['nationality']; ?></td>
                 <td class="buttons">
 
-                    <a href="mailto:<?php echo $customerDetails['Email'] ?>" class="acceptedLaboris deserunt quis sunt aliqua ullamco sunt. Laboris ipsum do dolor ea enim veniam aliqua cillum adipisicing enim veniam tempor reprehenderit eu. Aute elit exercitation do id quis ex laborum voluptate culpa cupidatat excepteur. Labore aute exercitation aliquip fugiat aute duis aliqua ad cupidatat aliqua veniam sit. Quis irure consequat enim laboris amet laborum aliqua.">Contact</a>
+                    <a href="mailto:<?php echo $customerDetails['Email'] ?>" class="accepted">Contact</a>
                     <form method="post">
-                        <input hidden  name="cust_id" value="<?php echo $customerDetails['CustomerID']; ?>">
+                        <input hidden name="cust_id" value="<?php echo $customerDetails['CustomerID']; ?>">
                         <input hidden name="image" value="<?php echo $customerDetails['image']; ?>">
                         <button type="submit" name="del_cust" class="reject">Delete</button>
                     </form>

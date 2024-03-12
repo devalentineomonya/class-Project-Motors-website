@@ -50,6 +50,7 @@ include "views/partials/header.php"
 
                             $stmt = $pdo->prepare("SELECT* FROM categories");
                             $stmt->execute();
+                            
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             ?>
                                 <option value="<?php echo $row['CategoryName']; ?>"><?php echo $row['CategoryName']; ?></option>

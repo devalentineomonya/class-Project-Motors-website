@@ -72,7 +72,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Set a default value for $categoryID
                 $categoryID = null;
             }
+        }else{
+             $categoryID = null;
         }
+
 
         if (!empty($type)) {
             $sql .= " AND Type = :type";
@@ -92,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Bind category ID if it's valid
-        if ($categoryID !== null) {
+        if (isset($category) && $categoryID !== null) {
             $stmt->bindValue(":categoryID", $categoryID);
         }
 
