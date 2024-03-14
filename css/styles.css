@@ -233,6 +233,7 @@ CAR FILTER SECTION
     margin-right: 20px;
     border-radius: 10px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .car-booking-section .image-container img {
@@ -450,6 +451,7 @@ COUNTER SECTION
     height: 300px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .counter-container {
@@ -458,6 +460,7 @@ COUNTER SECTION
     display: flex;
     column-gap: 100px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .counter-item {
@@ -516,9 +519,10 @@ FOOTER SECTION
     flex-direction: column;
     align-items: flex-start;
 }
-.footer-content-left span{
-color: var(--simba-primary);
-margin: 10px 0;
+
+.footer-content-left span {
+    color: var(--simba-primary);
+    margin: 10px 0;
 }
 
 .intouch,
@@ -571,7 +575,8 @@ input,
     margin-top: 10px;
 
 }
-.footer-icons li{
+
+.footer-icons li {
     list-style: none;
 }
 
@@ -620,9 +625,10 @@ input,
     margin-bottom: 20px;
 }
 
-.port li{
+.port li {
     list-style: none;
 }
+
 /* 
 ============================
 CONTACT FORM
@@ -1307,6 +1313,16 @@ MEDIA QUERY
         height: 70%;
     }
 
+    .counter-section {
+        height: auto;
+    }
+
+    .counter-container {
+        row-gap: 50px;
+        justify-content: center;
+        column-gap: 50px;
+     
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -1346,6 +1362,22 @@ MEDIA QUERY
     ======================== */
     .car-card .video-overlay .video-content {
         height: 50%;
+    }
+
+    .car-booking-section .flex-container {
+        flex-direction: column;
+    }
+
+    .car-booking-section .form-container {
+        margin-top: 50px;
+        width: 90%;
+        margin: 0 auto;
+
+    }
+
+    .category-section-container {
+        width: 98%;
+        margin: 0 auto;
     }
 
 

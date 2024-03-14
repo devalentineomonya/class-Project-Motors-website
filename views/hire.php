@@ -48,7 +48,7 @@ include "views/partials/header.php"
                         <h2><a href="#"><?php echo $row['Make']; ?></a></h2>
                         <div class="car-text-d-flex">
                             <span class="cat"><?php echo $row['Model']; ?></span>
-                            <p class="price">$<?php echo $row['Price']; ?> <span>/day</span></p>
+                            <p class="price"><?php echo $row['Price']; ?> <span>/day</span></p>
                         </div>
                         <p class="car-button-d-flex">
                             <?php if (isset($_SESSION['currentUser'])) : ?>

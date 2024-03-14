@@ -46,7 +46,7 @@ $stmt->execute();
 
 ?>
 
-<h2>List of Hired Cars</h2>
+<h2>List of Customers</h2>
 <?php
 if (isset($_SESSION["Delerror"])) {
     echo '<div class="error-message">' . $_SESSION["Delerror"] . '</div>';
