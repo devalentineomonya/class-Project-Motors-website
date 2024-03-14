@@ -17,47 +17,48 @@ include "views/partials/header.php"
     document.title = "About Us";
   });
 </script>
-<div class="responsive-container-block outer-container">
-  <div class="responsive-container-block inner-container">
-    <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-4 wk-ipaditp-5 content-container">
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="content-container">
       <div class="content-box">
-        <p class="text-blk section-head">
+        <p class="section-head">
           Group 4 Devs Team
         </p>
-        <p class="text-blk section-body">
+        <p class="section-body">
           Our award-winning web development team is comprised of passionate and creative minds, each bringing a unique blend of front-end, back-end, and UX expertise. Fueled by a shared enthusiasm for innovation, they excel in crafting responsive, user-centric websites and applications. Their collaborative spirit and dedication to continuous learning ensure they stay at the forefront of emerging web development trends and technologies. This translates into exceptional digital solutions for our clients, achieved through meticulous attention to detail, unwavering commitment to quality code, and a relentless pursuit of user satisfaction. United by their love for web development and a desire to make a positive impact, this cohesive and motivated team is prepared to tackle any project with unmatched expertise and unwavering dedication.
         </p>
       </div>
     </div>
-    <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-8 team-cards-outer-container">
-      <div class="responsive-container-block team-cards-inner-container">
-        <?php
-        $stmt = $pdo->prepare("SELECT * FROM devsteam");
-        $stmt->execute();
-        while ($memberDetails = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        ?>
-          <div class="responsive-cell-block wk-mobile-12 wk-ipadp-10 wk-tab-8 wk-desk-6 card-container">
-            <div class="card">
-              <div class="img-box">
-                <img class="person-img" src="<?php echo $memberDetails['MemberImg']; ?>">
-              </div>
-              <div class="card-content-box">
-                <p class="text-blk person-name">
-                  <?php echo $memberDetails['MemberName']; ?>
-                </p>
-                <p class="text-blk person-info">
-                  <?php echo $memberDetails['MemberRole']; ?>
-                </p>
-              </div>
+    <!-- <div class="team-cards-outer-container"> -->
+    <div class="team-cards-inner-container">
+      <?php
+      $stmt = $pdo->prepare("SELECT * FROM devsteam");
+      $stmt->execute();
+      while ($memberDetails = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      ?>
+        <div class="card-container">
+          <div class="card">
+            <div class="img-box">
+              <img class="person-img" src="<?php echo $memberDetails['MemberImg']; ?>">
+            </div>
+            <div class="card-content-box">
+              <p class="person-name">
+                <?php echo $memberDetails['MemberName']; ?>
+              </p>
+              <p class="person-info">
+                <?php echo $memberDetails['MemberRole']; ?>
+              </p>
             </div>
           </div>
-        <?php
-        }
-        ?>
-      </div>
+        </div>
+      <?php
+      }
+      ?>
     </div>
   </div>
 </div>
+</div>
+
 
 <section class="location-distribution">
   <div class="left-section">
