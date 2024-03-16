@@ -1,0 +1,20 @@
+{
+    "name": "user/class-project",
+    "description": "The class project for simba motors",
+    "type": "project",
+    "require-dev": {
+        "smottt/wideimage": "1.1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "User\\ClassProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Valentine Omonya",
+            "email": "valomosh254@gmail.com"
+        }
+    ],
+    "require": {}
+}
